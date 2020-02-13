@@ -1,9 +1,13 @@
 package com.timurradko.threadHomework;
 
-public class threadHomework1 {
+public class ThreadHomework1 extends Thread {
+
+    ThreadHomework1 (String name) {
+        setName(name);
+    }
+
     public static void main(String[] args) {
-        Thread thread = new Thread();
-        thread.setName("Thread1");
+        Thread thread = new Thread("Thread1");
         System.out.println(thread.getName() + " has not yet started. Thread condition: " + thread.getState());
         thread.start();
         System.out.println(thread.getName() + " is running. Thread condition: " + thread.getState());
