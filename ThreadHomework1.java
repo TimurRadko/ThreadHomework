@@ -2,7 +2,7 @@ package com.timurradko.threadHomework;
 
 public class ThreadHomework1 extends Thread {
 
-    ThreadHomework1 (String name) {
+    private ThreadHomework1(String name) {
         setName(name);
     }
 

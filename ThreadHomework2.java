@@ -10,11 +10,18 @@ public class ThreadHomework2 extends Thread {
     public static void main(String[] args) {
         ThreadHomework2 thread1 = new ThreadHomework2("Thread1");
         ThreadHomework2 thread2 = new ThreadHomework2("Thread2");
-        System.out.println(Thread.currentThread().getName());
+//        for (int i = 0; i < 5; i++) {
+//            try {
+//                Thread.sleep(1000);
+//                System.out.println(Thread.currentThread().getName());
+//            } catch (InterruptedException e) {
+//            }
+//        }
 
 
         //System.out.println(Thread.currentThread());
-        //System.out.println(thread1.getName());
-        //System.out.println(thread2.getName());
+        System.out.println(thread2.isAlive());
+        System.out.println(thread1.isAlive());
+
     }
 }
