@@ -11,7 +11,7 @@ public class ThreadHomework1 extends Thread {
         System.out.println(thread.getName() + " has not yet started. Thread condition: " + thread.getState());
         thread.start();
         System.out.println(thread.getName() + " is running. Thread condition: " + thread.getState());
-        
+
         try {
             ThreadHomework1.sleep(5000);
         } catch (InterruptedException e) {
