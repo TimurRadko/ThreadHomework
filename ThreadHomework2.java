@@ -8,9 +8,9 @@ public class ThreadHomework2 extends Thread {
     }
 
     public static void main(String[] args) {
-        Thread thread1 = new Thread("Thread1");
-        Thread thread2 = new Thread("Thread2");
-
+        ThreadHomework2 thread1 = new ThreadHomework2("Thread1");
+        ThreadHomework2 thread2 = new ThreadHomework2("Thread2");
+        System.out.println(Thread.currentThread().getName());
 
 
         //System.out.println(Thread.currentThread());
