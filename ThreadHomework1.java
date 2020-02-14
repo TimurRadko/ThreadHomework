@@ -1,17 +1,29 @@
 package com.timurradko.threadHomework;
 
-public class ThreadHomework1 extends Thread {
-
-    private ThreadHomework1(String name) {
-        setName(name);
-    }
+public class ThreadHomework1 {
 
     public static void main(String[] args) {
-        ThreadHomework1 thread = new ThreadHomework1("Thread");
+        Thread thread = new ThreadHome1("Thread");
         System.out.println(thread.getName() + " has not yet started. Thread condition: " + thread.getState());
         thread.start();
-        System.out.println(thread.getName() + " is running. Thread condition: " + thread.getState());
-        thread.interrupt();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
         System.out.println(thread.getName() + " has exited. Thread condition: " + thread.getState());
+    }
+
+
+    static class ThreadHome1 extends Thread {
+        private ThreadHome1 (String name) {
+            setName(name);
+        }
+
+        @Override
+        public void run () {
+            System.out.println(getName() + " is running. Thread condition: " + getState());
+        }
     }
 }
