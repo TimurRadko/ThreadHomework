@@ -9,7 +9,7 @@ public class ThreadHomework1 {
         try {
             thread.join();
         } catch (InterruptedException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         System.out.println(thread.getName() + " has exited. Thread condition: " + thread.getState());
