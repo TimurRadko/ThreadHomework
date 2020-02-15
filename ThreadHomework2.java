@@ -1,27 +1,35 @@
 package com.timurradko.threadHomework;
 
-public class ThreadHomework2 extends Thread {
-
-    ThreadHomework2(String name) {
-        setName(name);
-        start();
-    }
+public class ThreadHomework2 {
+    private static Object lock = new Object();
 
     public static void main(String[] args) {
-        ThreadHomework2 thread1 = new ThreadHomework2("Thread1");
-        ThreadHomework2 thread2 = new ThreadHomework2("Thread2");
-//        for (int i = 0; i < 5; i++) {
-//            try {
-//                Thread.sleep(1000);
-//                System.out.println(Thread.currentThread().getName());
-//            } catch (InterruptedException e) {
-//            }
-//        }
+        Thread thread1 = new NamePrintThread("Thread1");
+        Thread thread2 = new NamePrintThread("Thread2");
+        thread1.start();
+        thread2.start();
 
+    }
 
-        //System.out.println(Thread.currentThread());
-        System.out.println(thread2.isAlive());
-        System.out.println(thread1.isAlive());
+    static class NamePrintThread extends Thread {
+        private NamePrintThread (String name) {
+            setName(name);
+        }
 
+        @Override
+        public void run() {
+            while (true) {
+                synchronized (lock) {
+                    lock.notifyAll();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    System.out.println(getName() + " is running now");
+                }
+            }
+        }
     }
 }
