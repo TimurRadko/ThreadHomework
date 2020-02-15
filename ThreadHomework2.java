@@ -12,7 +12,7 @@ public class ThreadHomework2 {
     }
 
     static class NamePrintThread extends Thread {
-        private NamePrintThread (String name) {
+        private NamePrintThread(String name) {
             setName(name);
         }
 
@@ -20,14 +20,13 @@ public class ThreadHomework2 {
         public void run() {
             while (true) {
                 synchronized (lock) {
+                    System.out.println(getName() + " is running now");
                     lock.notifyAll();
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
-                    System.out.println(getName() + " is running now");
                 }
             }
         }
